@@ -1,0 +1,16 @@
+obj
+bin
+_ReSharper*
+*.csproj.user
+*.ReSharper.user
+*.ReSharper
+*.user
+*.suo
+*.cache
+~$*
+*~
+*.log
+packages
+*.ncrunch*
+*.DotSettings
+*.swp
