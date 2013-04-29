@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,7 +67,9 @@
   <ItemGroup>
     <Content Include="NugetPackage\tools\install.ps1" />
     <Content Include="NugetPackage\NugetPackage.nuspec" />
-    <Content Include="NugetPackage\tools\App.config" />
+    <Content Include="NugetPackage\content\App.config" />
+    <Content Include="packages.config" />
+    <Content Include="App.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -101,4 +105,5 @@
   <Target Name="AfterBuild">
     <Exec Command="&quot;$(ProjectDir)..\.nuget\NuGet.exe&quot; pack &quot;$(ProjectDir)NugetPackage\NugetPackage.nuspec&quot; -OutputDirectory &quot;$(ProjectDir)..&quot; -version $([System.DateTime]::Now.ToString(`yyMM`)).$([System.DateTime]::Now.ToString(`ddHH`)).$([System.DateTime]::Now.ToString(`mmss`))" />
   </Target>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>
