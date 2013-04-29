@@ -68,7 +68,6 @@
     <Content Include="NugetPackage\tools\install.ps1" />
     <Content Include="NugetPackage\NugetPackage.nuspec" />
     <Content Include="NugetPackage\content\App.config" />
-    <Content Include="packages.config" />
     <Content Include="App.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
