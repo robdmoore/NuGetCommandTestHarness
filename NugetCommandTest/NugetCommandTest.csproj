@@ -63,7 +63,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NugetPackage\tools\init.ps1" />
+    <Content Include="NugetPackage\tools\install.ps1" />
+    <Content Include="NugetPackage\NugetPackage.nuspec" />
+    <Content Include="NugetPackage\tools\App.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -96,11 +98,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
   <Target Name="AfterBuild">
+    <Exec Command="&quot;$(ProjectDir)..\.nuget\NuGet.exe&quot; pack &quot;$(ProjectDir)NugetPackage\NugetPackage.nuspec&quot; -OutputDirectory &quot;$(ProjectDir)..&quot; -version $([System.DateTime]::Now.ToString(`yyMM`)).$([System.DateTime]::Now.ToString(`ddHH`)).$([System.DateTime]::Now.ToString(`mmss`))" />
   </Target>
-  -->
 </Project>
